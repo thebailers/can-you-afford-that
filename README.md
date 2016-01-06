@@ -6,6 +6,7 @@ This is still in very early stages of development, some data acts as placeholder
 ## Setup
 (Currently setup with Firebase which is free for development: https://www.firebase.com/)
 
+- Setup your Firebase account, create a new base and make a not of the Firebase URL. You will need this in a minute.
 - Install NPM dependencies `npm install`
 - Rename scripts/config.js.dist to config.js and update it with your firebase URL
 - Run gulp tasks from the root `gulp`
