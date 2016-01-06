@@ -61,19 +61,6 @@ var App = React.createClass({
       cashbook: { expenditure: this.state.cashbook.expenditure }
     });
   },
-  // renderExpenditure: function(key) {
-  //   var details = this.state.cashbook.expenditure[key];
-  //   return(
-  //     <tr className="item" key={key}>
-  //       <td><strong>{details.name}</strong></td>
-  //       <td><strong>{h.formatPrice(details.amount)}</strong></td>
-  //       <td>{details.category}</td>
-  //       <td>{details.type}</td>
-  //       <td>{details.date}</td>
-  //       <td><button className="remove-item" onClick={this.removeExpenditure.bind(null, key)}>Remove</button></td>
-  //     </tr>
-  //   );
-  // },
   removeIncome: function(key) {
     this.state.cashbook.income[key] = null;
     this.setState({
