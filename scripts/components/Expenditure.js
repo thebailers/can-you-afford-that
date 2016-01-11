@@ -1,6 +1,5 @@
 /* Expenditure */
 import React from 'react';
-import AddForm from './AddForm';
 import h from '../helpers';
 
 var Expenditure = React.createClass({
