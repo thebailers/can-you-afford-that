@@ -37,34 +37,19 @@ var App = React.createClass({
     });
   },
 
-  addExpenditure: function(expenditure) {
+  addCashflow: function(cashflow, type) {
     var timestamp = (new Date()).getTime();
     // update state object
-    this.state.cashbook.expenditure['expenditure-' + timestamp] = expenditure;
+    this.state.cashbook[type][type + '-' + timestamp] = cashflow;
     // set state
     this.setState({
-      cashbook: { expenditure: this.state.cashbook.expenditure }
+      cashbook: { [type]: this.state.cashbook[type] }
     });
   },
-  addIncome: function(income) {
-    var timestamp = (new Date()).getTime();
-    // update state object
-    this.state.cashbook.income['income-' + timestamp] = income;
-    // set state
+  removeCashflow: function(key, type) {
+    this.state.cashbook[type][key] = null;
     this.setState({
-      cashbook: { income: this.state.cashbook.income }
-    });
-  },
-  removeExpenditure: function(key) {
-    this.state.cashbook.expenditure[key] = null;
-    this.setState({
-      cashbook: { expenditure: this.state.cashbook.expenditure }
-    });
-  },
-  removeIncome: function(key) {
-    this.state.cashbook.income[key] = null;
-    this.setState({
-      cashbook: { income: this.state.cashbook.income }
+      cashbook: { [type]: this.state.cashbook[type] }
     });
   },
   listInventory: function() {
@@ -87,7 +72,7 @@ var App = React.createClass({
 
         <Expenditure
           cashbook={this.state.cashbook.expenditure}
-          removeExpenditure={this.removeExpenditure} />
+          removeCashflow={this.removeCashflow} />
 
         <TotalCashflow
           type={this.state.cashbook.expenditure}
@@ -95,11 +80,11 @@ var App = React.createClass({
           identifier='expenditure'
           />
 
-        <AddForm addCashflow={this.addExpenditure} />
+        <AddForm addCashflow={this.addCashflow} type={'expenditure'} />
 
         <Income
           cashbook={this.state.cashbook.income}
-          removeIncome={this.removeIncome} />
+          removeCashflow={this.removeCashflow} />
 
         <TotalCashflow
           type={this.state.cashbook.income}
@@ -107,7 +92,7 @@ var App = React.createClass({
           identifier='income'
           />
 
-        <AddForm addCashflow={this.addIncome} />
+        <AddForm addCashflow={this.addCashflow} type={'income'} />
 
         <Available totals={this.state.totals} />
 

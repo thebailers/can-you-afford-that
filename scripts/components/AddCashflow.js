@@ -6,6 +6,8 @@ var AddCashflow = React.createClass({
   createCashflow: function(e) {
     e.preventDefault();
 
+    var type = this.props.type;
+
     // Take data from form and create an object
     var cashflow = {
       name: this.refs.name.value,
@@ -16,7 +18,7 @@ var AddCashflow = React.createClass({
     }
 
     // Add expenditure to App state
-    this.props.addCashflow(cashflow);
+    this.props.addCashflow(cashflow, type);
     this.refs.cfform.reset();
   },
   render: function() {

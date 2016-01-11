@@ -12,7 +12,7 @@ var Income = React.createClass({
         <td>{details.category}</td>
         <td>{details.type}</td>
         <td>{details.date}</td>
-        <td><button className="remove-item" onClick={this.props.removeIncome.bind(null, key)}>Remove</button></td>
+        <td><button className="remove-item" onClick={this.props.removeCashflow.bind(null, key, 'income')}>Remove</button></td>
       </tr>
     );
   },
