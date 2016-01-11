@@ -67,19 +67,6 @@ var App = React.createClass({
       cashbook: { income: this.state.cashbook.income }
     });
   },
-  renderIncome: function(key) {
-    var details = this.state.cashbook.income[key];
-    return(
-      <tr className="item" key={key}>
-        <td><strong>{details.name}</strong></td>
-        <td><strong>{h.formatPrice(details.amount)}</strong></td>
-        <td>{details.category}</td>
-        <td>{details.type}</td>
-        <td>{details.date}</td>
-        <td><button className="remove-item" onClick={this.removeIncome.bind(null, key)}>Remove</button></td>
-      </tr>
-    );
-  },
   listInventory: function() {
     return
   },
@@ -112,7 +99,7 @@ var App = React.createClass({
 
         <Income
           cashbook={this.state.cashbook.income}
-          renderIncome={this.renderIncome} />
+          removeIncome={this.removeIncome} />
 
         <TotalCashflow
           type={this.state.cashbook.income}
