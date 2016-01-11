@@ -23,6 +23,13 @@ module.exports = {
         category: 'Income',
         type: 'recurring',
         date: '1st'
+    },
+    paperround : {
+        name: 'Paper Round',
+        amount: '6860',
+        category: 'Income',
+        type: 'recurring',
+        date: '1st'
     }
   }
 }
