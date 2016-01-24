@@ -14,8 +14,10 @@ import Income from './Income';
 import TotalCashflow from './TotalCashflow';
 import AddForm from './AddForm';
 import Available from './Available';
+import Tabs from './Tabs';
+import Pane from './Pane';
 
-var App = React.createClass({
+const App = React.createClass({
 
   // Part of React lifecycle
   getInitialState: function() {
@@ -70,32 +72,41 @@ var App = React.createClass({
 
         <a className="button" onClick={this.LoadSampleData}>Load Sample Data</a>
 
-        <Expenditure
-          cashbook={this.state.cashbook.expenditure}
-          removeCashflow={this.removeCashflow} />
+        <Tabs>
+  				<Pane label="Expenditure">
+            <div>
+              <Expenditure
+                cashbook={this.state.cashbook.expenditure}
+                removeCashflow={this.removeCashflow} />
 
-        <TotalCashflow
-          type={this.state.cashbook.expenditure}
-          addTotal={this.addTotal}
-          identifier='expenditure'
-          />
+              <TotalCashflow
+                type={this.state.cashbook.expenditure}
+                addTotal={this.addTotal}
+                identifier='expenditure'
+                />
 
-        <AddForm addCashflow={this.addCashflow} type={'expenditure'} />
+              <AddForm addCashflow={this.addCashflow} type={'expenditure'} />
+            </div>
+  				</Pane>
+  				<Pane label="Income">
+            <div>
+              <Income
+                cashbook={this.state.cashbook.income}
+                removeCashflow={this.removeCashflow} />
 
-        <Income
-          cashbook={this.state.cashbook.income}
-          removeCashflow={this.removeCashflow} />
+              <TotalCashflow
+                type={this.state.cashbook.income}
+                addTotal={this.addTotal}
+                identifier='income'
+                />
 
-        <TotalCashflow
-          type={this.state.cashbook.income}
-          addTotal={this.addTotal}
-          identifier='income'
-          />
-
-        <AddForm addCashflow={this.addCashflow} type={'income'} />
-
-        <Available totals={this.state.totals} />
-
+              <AddForm addCashflow={this.addCashflow} type={'income'} />
+            </div>
+  				</Pane>
+  				<Pane label="Available to spend">
+  					<Available totals={this.state.totals} />
+  				</Pane>
+  			</Tabs>
       </div>
     );
   }
