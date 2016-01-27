@@ -1,15 +1,14 @@
 /* Add new Cashflow */
-
 import React from 'react';
 
-var AddCashflow = React.createClass({
-  createCashflow: function(e) {
+const AddCashflow = React.createClass({
+  createCashflow(e) {
     e.preventDefault();
 
-    var type = this.props.type;
+    const type = this.props.type;
 
     // Take data from form and create an object
-    var cashflow = {
+    const cashflow = {
       name: this.refs.name.value,
       amount: this.refs.amount.value,
       category: this.refs.category.value,
@@ -21,7 +20,7 @@ var AddCashflow = React.createClass({
     this.props.addCashflow(cashflow, type);
     this.refs.cfform.reset();
   },
-  render: function() {
+  render() {
     return(
       <form className="add-cashflow" ref="cfform" onSubmit={this.createCashflow}>
         <input type="text" ref="name" placeholder="Name" />

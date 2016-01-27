@@ -5,7 +5,7 @@ import config from '../config.js';
 
 // Firebase
 import Rebase from 're-base';
-var base = Rebase.createClass(config.firebase);
+const base = Rebase.createClass(config.firebase);
 
 import h from '../helpers';
 
@@ -20,52 +20,70 @@ import Pane from './Pane';
 const App = React.createClass({
 
   // Part of React lifecycle
-  getInitialState: function() {
+  getInitialState() {
     return {
       cashbook: {
         expenditure: {},
-        income: {}
+        income: {},
+        transactions: {}
       },
       totals: {},
       available: {}
     }
   },
 
-  componentDidMount: function() {
-    // Two way data binding
+  componentDidMount() {
     base.syncState('cashbook', {
       context: this,
       state: 'cashbook'
     });
   },
+  addTransaction(transaction) {
+    const timestamp = (new Date()).getTime();
+    const monthNames = ["january", "february", "march", "april", "may", "june",
+"july", "august", "september", "october", "november", "december"];
+    const year = (new Date()).getFullYear();
+    const month = monthNames[(new Date()).getMonth()];
 
-  addCashflow: function(cashflow, type) {
-    var timestamp = (new Date()).getTime();
-    // update state object
+    const transactions = this.state.cashbook.transactions || {};
+    const yearObject = transactions[year] || {};
+    const monthObject = yearObject[month] || {};
+    const transactionId = 'transaction-' + timestamp;
+
+    const newTransactions = {
+        ...transactions,
+        [year]: {
+            ...yearObject,
+            [month]: {
+                ...monthObject,
+                [transactionId]: transaction
+            }
+        }
+    };
+    this.setState({ cashbook: { transactions: newTransactions } });
+  },
+  addCashflow(cashflow, type) {
+    const timestamp = (new Date()).getTime();
     this.state.cashbook[type][type + '-' + timestamp] = cashflow;
-    // set state
     this.setState({
       cashbook: { [type]: this.state.cashbook[type] }
     });
   },
-  removeCashflow: function(key, type) {
+  removeCashflow(key, type) {
     this.state.cashbook[type][key] = null;
     this.setState({
       cashbook: { [type]: this.state.cashbook[type] }
     });
   },
-  listInventory: function() {
-    return
-  },
-  addTotal: function(type, total) {
+  addTotal(type, total) {
     this.state.totals[type] = total;
   },
-  LoadSampleData: function() {
+  LoadSampleData() {
     this.setState({
       cashbook: require('../sample-data')
     });
   },
-  render: function() {
+  render() {
 
     return(
       <div className="cashbook">
@@ -104,7 +122,7 @@ const App = React.createClass({
             </div>
   				</Pane>
   				<Pane label="Available to spend">
-  					<Available totals={this.state.totals} />
+  					<Available totals={this.state.totals} addTransaction={this.addTransaction} />
   				</Pane>
   			</Tabs>
       </div>

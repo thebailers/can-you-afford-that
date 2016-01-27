@@ -3,17 +3,11 @@ import React from 'react';
 import h from '../helpers';
 
 /* Cashflow Running Total */
-var TotalCashflow = React.createClass({
-  componentDidMount: function() {
-
-  },
-  addTotal: function() {
-
-  },
-  render: function() {
-    var expIds = Object.keys(this.props.type);
-    var total = expIds.reduce((prevTotal, key) => {
-      var type = this.props.type[key];
+const TotalCashflow = React.createClass({
+  render() {
+    const expIds = Object.keys(this.props.type);
+    const total = expIds.reduce((prevTotal, key) => {
+      const type = this.props.type[key];
       return prevTotal + (parseFloat(type.amount));
     }, 0);
 

@@ -9,3 +9,6 @@ body {
   border-radius: 25px;
   padding: 2px 5px;
 }
+p {
+  font-family: 'Raleway', serif;
+}

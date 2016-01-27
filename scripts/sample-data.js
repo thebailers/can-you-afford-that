@@ -31,5 +31,21 @@ module.exports = {
         type: 'recurring',
         date: '1st'
     }
+  },
+  transactions: {
+    "2016" : {
+        "january": {
+            coffee: {
+              name: 'coffee',
+              amount: '280',
+              date: '1st'
+            },
+            book: {
+              name: 'book',
+              amount: '499',
+              date: '2nd'
+            }
+        }
+    }
   }
 }

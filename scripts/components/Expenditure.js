@@ -3,7 +3,7 @@ import React from 'react';
 import h from '../helpers';
 
 var Expenditure = React.createClass({
-  renderExpenditure: function(key) {
+  renderExpenditure(key) {
     var details = this.props.cashbook[key];
     return(
       <tr className="item" key={key}>
@@ -16,7 +16,7 @@ var Expenditure = React.createClass({
       </tr>
     );
   },
-  render: function() {
+  render() {
     return(
       <div className="expenditure">
         <table id="exp-table">
