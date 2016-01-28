@@ -2,9 +2,9 @@
 import React from 'react';
 import h from '../helpers';
 
-var Expenditure = React.createClass({
+const Expenditure = React.createClass({
   renderExpenditure(key) {
-    var details = this.props.cashbook[key];
+    const details = this.props.cashbook[key];
     return(
       <tr className="item" key={key}>
         <td><strong>{details.name}</strong></td>
@@ -21,7 +21,7 @@ var Expenditure = React.createClass({
       <div className="expenditure">
         <table id="exp-table">
           <tbody>
-            {Object.keys(this.props.cashbook).map(this.renderExpenditure)}
+            {Object.keys(this.props.cashbook || {}).map(this.renderExpenditure)}
           </tbody>
         </table>
       </div>

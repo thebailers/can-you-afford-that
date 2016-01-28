@@ -64,9 +64,14 @@ const App = React.createClass({
   },
   addCashflow(cashflow, type) {
     const timestamp = (new Date()).getTime();
-    this.state.cashbook[type][type + '-' + timestamp] = cashflow;
+    const newcf = type + '-' + timestamp;
+    const cf = this.state.cashbook[type] || {};
+    const newstate = {
+      ...[cf],
+      [newcf]: cashflow
+    }
     this.setState({
-      cashbook: { [type]: this.state.cashbook[type] }
+      cashbook: { [type]: newstate }
     });
   },
   removeCashflow(key, type) {
