@@ -12,7 +12,11 @@ const Available = React.createClass({
         <h2>Run down</h2>
         <h3>Available Monthly Funds</h3>
         <div>{h.formatPrice(monthly)} monthly</div>
-        <Transactions addTransaction={this.props.addTransaction} available={monthly} />
+
+        <Transactions
+          addTransaction={this.props.addTransaction}
+          available={monthly}
+          transactions={this.props.transactions} />
       </div>
     );
   }

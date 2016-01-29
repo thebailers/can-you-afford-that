@@ -127,7 +127,10 @@ const App = React.createClass({
             </div>
   				</Pane>
   				<Pane label="Available to spend">
-  					<Available totals={this.state.totals} addTransaction={this.addTransaction} />
+  					<Available
+            totals={this.state.totals}
+            addTransaction={this.addTransaction}
+            transactions={this.state.cashbook.transactions} />
   				</Pane>
   			</Tabs>
       </div>
