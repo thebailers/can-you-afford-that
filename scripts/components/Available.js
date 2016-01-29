@@ -14,9 +14,11 @@ const Available = React.createClass({
         <div>{h.formatPrice(monthly)} monthly</div>
 
         <Transactions
+          removeTransaction={this.props.removeTransaction}
           addTransaction={this.props.addTransaction}
           available={monthly}
-          transactions={this.props.transactions} />
+          transactions={this.props.transactions}
+           />
       </div>
     );
   }

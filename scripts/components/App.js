@@ -80,6 +80,12 @@ const App = React.createClass({
       cashbook: { [type]: this.state.cashbook[type] }
     });
   },
+  removeTransactions(key, type, year, month) {
+    this.state.cashbook[type][year][month][key] = null;
+    this.setState({
+      cashbook: { [type]: this.state.cashbook[type] }
+    });
+  },
   addTotal(type, total) {
     this.state.totals[type] = total;
   },
@@ -130,7 +136,8 @@ const App = React.createClass({
   					<Available
             totals={this.state.totals}
             addTransaction={this.addTransaction}
-            transactions={this.state.cashbook.transactions} />
+            transactions={this.state.cashbook.transactions}
+            removeTransaction={this.removeTransactions} />
   				</Pane>
   			</Tabs>
       </div>

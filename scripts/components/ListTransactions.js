@@ -9,7 +9,7 @@ const ListTransactions = React.createClass({
         <td><strong>{details.name}</strong></td>
         <td><strong>{h.formatPrice(details.amount)}</strong></td>
         <td>{details.date}</td>
-        {/*}<td><button className="remove-item" onClick={this.props.removeCashflow.bind(null, key, 'expenditure')}>Remove</button></td>*/}
+        <td><button className="remove-item" onClick={this.props.removeTransaction.bind(null, key, 'transactions', '2016', 'january')}>Remove</button></td>
       </tr>
     );
   },

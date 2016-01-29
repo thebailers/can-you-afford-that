@@ -8,7 +8,9 @@ const Transactions = React.createClass({
     return (
       <div>
         <AddTransaction addTransaction={this.props.addTransaction} />
-        <ListTransactions transactions={this.props.transactions} />
+        <ListTransactions
+          transactions={this.props.transactions}
+          removeTransaction={this.props.removeTransaction} />
       </div>
     );
   }
