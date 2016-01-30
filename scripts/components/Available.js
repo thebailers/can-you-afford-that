@@ -18,6 +18,7 @@ const Available = React.createClass({
           addTransaction={this.props.addTransaction}
           available={monthly}
           transactions={this.props.transactions}
+          totals={this.props.totals}
            />
       </div>
     );
