@@ -67,7 +67,6 @@ const App = React.createClass({
     const newcf = type + '-' + timestamp;
     const cf = this.state.cashbook[type] || {};
     const newstate = {
-      ...[cf],
       [newcf]: cashflow
     }
     this.setState({
