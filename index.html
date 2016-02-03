@@ -11,48 +11,36 @@
 </head>
 <body>
     <h1>Can You Afford That?</h1>
+    <h3>Todo</h3>
+    <ul class="todo">
+      <li class="strike">Fix error on empty income/expenditure</li>
+      <li>Add ability to edit cashflow inline</li>
+      <li>Add monthly savings target/tracker</li>
+      <li>Shortfall for overspend</li>
+      <li>Multiple account</li>
+      <li>Filtering/ordering of cashflow, date, type</li>
+      <li>Add real categories</li>
+      <li>Enable real dates</li>
+      <li>Remove hardcoded month/year for transactions</li>
+      <li>Highlighting on expenditure already come out</li>
+      <li>Add notifications when remaining expenditure will deplete remaining funds - or is close to</li>
+      <li>Add form validation</li>
+      <li>Improve cashflow value input</li>
+      <li>Notifications/warnings for unusual expenditure
+        <ul>
+          <li>Car tax</li>
+          <li>Insurance</li>
+          <li>Birthdays</li>
+          <li>Annual fees</li>
+          <li>...etc</li>
+        </ul>
+      </li>
+      <li>Add month auto reset when you get paid, and archive previous month</li>
+      <li>Display archived transactions and make searchable</li>
+    </ul>
 
     <div id="main"></div>
 
   <script src="/build/main.js"></script>
-  <!--
-    localstorage for income - expenditure
-       - need to add totals to cash {}
-    fb for current bank balance
-
-
-
-
-    Todo
-      - Fix error on empty income/expenditure
-
-
-
-    savings target
-    shortfall, amount if spent too much
-
-    add functionality for various accounts
-
-    order expenditure by date
-    some kind of highlighting on expenditure that has already come out, can be determined by todays date against date due out
-    warnings for if remaining expenditure to come out exceeds remaining available (overdrawn)
-
-    Prop types vid for validation (20/29)
-
-    Add ability to preview unusual expenditure in coming months:
-      - car tax
-      - insurance
-      - fees (ie SA accountancy membership)
-
-    available may need to be a state obj, perm
-      - available is passed each month, and total is reduces
-        for each spend
-
-
-    - correctly configure dates income and expenditure
-    - properly set up categories and enable filtering
-  -->
-
-
 </body>
 </html>

@@ -12,3 +12,6 @@ body {
 p {
   font-family: 'Raleway', serif;
 }
+ul.todo .strike {
+  text-decoration: line-through;
+}
