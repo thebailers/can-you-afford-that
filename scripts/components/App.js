@@ -40,10 +40,8 @@ const App = React.createClass({
   },
   addTransaction(transaction) {
     const timestamp = (new Date()).getTime();
-    const monthNames = ["january", "february", "march", "april", "may", "june",
-"july", "august", "september", "october", "november", "december"];
     const year = (new Date()).getFullYear();
-    const month = monthNames[(new Date()).getMonth()];
+    const month = h.monthNames[(new Date()).getMonth()];
 
     const transactions = this.state.cashbook.transactions || {};
     const yearObject = transactions[year] || {};
