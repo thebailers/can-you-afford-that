@@ -7,6 +7,8 @@ import config from '../config.js';
 import Rebase from 're-base';
 const base = Rebase.createClass(config.firebase);
 
+import Catalyst from 'react-catalyst';
+
 import h from '../helpers';
 
 import Expenditure from './Expenditure';
@@ -18,7 +20,7 @@ import Tabs from './Tabs';
 import Pane from './Pane';
 
 const App = React.createClass({
-
+  mixins: [Catalyst.LinkedStateMixin],
   // Part of React lifecycle
   getInitialState() {
     return {
@@ -46,7 +48,7 @@ const App = React.createClass({
     const transactions = this.state.cashbook.transactions || {};
     const yearObject = transactions[year] || {};
     const monthObject = yearObject[month] || {};
-    const transactionId = 'transaction-' + timestamp;
+    const transactionId = `transaction-${timestamp}`;
 
     const newTransactions = {
         ...transactions,
@@ -133,8 +135,7 @@ const App = React.createClass({
   					<Available
             totals={this.state.totals}
             addTransaction={this.addTransaction}
-            transactions={this.state.cashbook.transactions}
-            removeTransaction={this.removeTransactions} />
+            transactions={this.state.cashbook.transactions} />
   				</Pane>
   			</Tabs>
       </div>
