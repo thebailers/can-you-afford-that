@@ -2,7 +2,8 @@ body {
   font-family: 'Lato', serif;
   padding: 25px;
 }
-.remove-item {
+.remove-item,
+.edit-item {
   font-size: 12px;
   margin-left: 5px;
   border: 1px solid #a9a9a9;
