@@ -16,3 +16,23 @@ p {
 ul.todo .strike {
   text-decoration: line-through;
 }
+ul.tabs-labels,
+.tabs-content {
+  box-sizing: border-box;
+}
+ul.tabs-labels {
+  float: left;
+  list-style: none;
+  margin: 0;
+  width: 20%;
+}
+ul.tabs-labels li {
+  background: #ddd;
+  border-bottom: 1px solid #eee;
+  padding: 10px 5px;
+}
+.tabs-content {
+  float: right;
+  padding: 20px;
+  width: 80%;
+}
