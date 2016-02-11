@@ -135,6 +135,7 @@ const App = React.createClass({
   					<Available
             totals={this.state.totals}
             addTransaction={this.addTransaction}
+            removeTransaction={this.removeTransactions}
             transactions={this.state.cashbook.transactions} />
   				</Pane>
   			</Tabs>
