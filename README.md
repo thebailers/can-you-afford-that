@@ -1,5 +1,5 @@
 # Can you really afford to buy that?
-A simple money manager using React and Firebase - never go overdrawn again!
+A simple money manager using React and Firebase - never go overdrawn again! [Now retired - please see my money-manager repository for the new app!]
 
 This is still in very early stages of development, some data acts as placeholder content
 
